@@ -40,23 +40,23 @@ Instantiate two teams:  basket ball Team ,  Soccer Team
 
 Step 3 - Use classes. In int main()
 
-Set the last 3 player names using setNames
+    Set the last 3 player names using setNames
 
-Add any 5 of the player to the basket ball team, one at a time (5 statements - pass player pointer )
+    Add any 5 of the player to the basket ball team, one at a time (5 statements - pass player pointer )
 
-Add all 7 of the players to the soccer team ( 7 statements - pass player pointer )
+    Add all 7 of the players to the soccer team ( 7 statements - pass player pointer )
 
-Print out all the members’ names in the basket ball team, use printAllNames()
+    Print out all the members’ names in the basket ball team, use printAllNames()
 
-Print out all the members’ names in the soccer team, use printAllNames()
+    Print out all the members’ names in the soccer team, use printAllNames()
 
-Delete the Basket ball team
+    Delete the Basket ball team
 
-Print out all names in the Basket Ball team
+    Print out all names in the Basket Ball team
 
-Delete the Soccer Team.
+    Delete the Soccer Team.
 
-Print out all player names.
+    Print out all player names.
 
-Delete each player
+    Delete each player
 
