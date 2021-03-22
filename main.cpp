@@ -66,5 +66,33 @@ public:
 };
 
 int main() {
+//instantiate 7 player
+    Player p1;
+    Player p2;
+    Player p3;
+    Player p4;
+    Player p5;
+    Player p6;
+    Player p7;
+    
+//use parm constructor on 4 players
+    p1.parmCon("George");
+    p2.parmCon("Ivan");
+    p3.parmCon("Hang");
+    p4.parmCon("Tuyet");
+    
+//use default constructor ad set names
+    p5.defaultCon();
+    p6.defaultCon();
+    p7.defaultCon();
+    p5.setName("Sue");
+    p6.setName("Victoria");
+    p7.setName("Tumbo");
+
+//instantiate two teams
+    Team basketball;
+    Team soccer;
+
+    
     
 }
