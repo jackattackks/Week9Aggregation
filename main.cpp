@@ -27,7 +27,7 @@ public:
         name = "Unknown";
     }
     
-    void parmCons(string list){
+    void parmCon(string list){
 //        list = array name
     }
 };
@@ -35,8 +35,34 @@ public:
 //Team class created
 class Team{
 private:
-public:
+    Player * ptrPlayer1;
+    Player * ptrPlayer2;
+    Player * ptrPlayer3;
+    Player * ptrPlayer4;
+    Player * ptrPlayer5;
+    Player * ptrPlayer6;
+    Player * ptrPlayer7;
     
+public:
+    void defaultTeam(){
+        ptrPlayer1 = NULL;
+        ptrPlayer2 = NULL;
+        ptrPlayer3 = NULL;
+        ptrPlayer4 = NULL;
+        ptrPlayer5 = NULL;
+        ptrPlayer6 = NULL;
+        ptrPlayer7 = NULL;
+    }
+    
+    void printAllNames(){
+        cout << ptrPlayer1 << endl;
+        cout << ptrPlayer2<< endl;
+        cout << ptrPlayer3<< endl;
+        cout << ptrPlayer4<< endl;
+        cout << ptrPlayer5<< endl;
+        cout << ptrPlayer6<< endl;
+        cout << ptrPlayer7<< endl;
+    }
 };
 
 int main() {
