@@ -44,7 +44,7 @@ private:
     Player * ptrPlayer7;
     
 public:
-    void defaultTeam(){
+    void defaultTeam(string b, string c, string d, string e, string f, string g, string h){
         ptrPlayer1 = NULL;
         ptrPlayer2 = NULL;
         ptrPlayer3 = NULL;
@@ -52,6 +52,7 @@ public:
         ptrPlayer5 = NULL;
         ptrPlayer6 = NULL;
         ptrPlayer7 = NULL;
+    
     }
     
     void printAllNames(){
@@ -93,6 +94,14 @@ int main() {
     Team basketball;
     Team soccer;
 
-    
+//STEP 3 STARTS HERE
+//    basketball players
+    Player * ptrP1 = new Player("GEORGE");
+    Player * ptrP2 = new Player(p2);
+    Player * ptrP3 = new Player(p3);
+    Player * ptrP4 = new Player(p4);
+    Player * ptrP5 = new Player(p5);
     
 }
+
+//teach is player dept is team
