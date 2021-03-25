@@ -15,6 +15,8 @@ private:
     string name;
 
 public:
+    Player(string inName) : name(inName){}
+    
     string getName(){
         return name;
     }
@@ -28,7 +30,7 @@ public:
     }
     
     void parmCon(string list){
-//        list = array name
+        list = name;
     }
 };
 
@@ -44,15 +46,17 @@ private:
     Player * ptrPlayer7;
     
 public:
-    void defaultTeam(string b, string c, string d, string e, string f, string g, string h){
-        ptrPlayer1 = NULL;
-        ptrPlayer2 = NULL;
-        ptrPlayer3 = NULL;
-        ptrPlayer4 = NULL;
-        ptrPlayer5 = NULL;
-        ptrPlayer6 = NULL;
-        ptrPlayer7 = NULL;
-    
+    Team(Player * ptrPlayer=NULL): ptrPlayer1 (ptrPlayer){}
+    void defaultTeam(Player *Person ){
+        
+        ptrPlayer1 = Person;
+//        ptrPlayer2 = Person2;
+//        ptrPlayer3 = Person3;
+//        ptrPlayer4 = Person4;
+//        ptrPlayer5 = Person5;
+//        ptrPlayer6 = Person6;
+//        ptrPlayer7 = Person7;
+
     }
     
     void printAllNames(){
@@ -68,40 +72,70 @@ public:
 
 int main() {
 //instantiate 7 player
-    Player p1;
-    Player p2;
-    Player p3;
-    Player p4;
-    Player p5;
-    Player p6;
-    Player p7;
+    Player *p1 = new Player(NULL);
+    Player *p2 = new Player(NULL);
+    Player *p3 = new Player(NULL);
+    Player *p4 = new Player(NULL);
+    Player *p5 = new Player(NULL);
+    Player *p6 = new Player(NULL);
+    Player *p7 = new Player(NULL);
     
 //use parm constructor on 4 players
-    p1.parmCon("George");
-    p2.parmCon("Ivan");
-    p3.parmCon("Hang");
-    p4.parmCon("Tuyet");
+    p1->parmCon("George");
+    p2->parmCon("Ivan");
+    p3->parmCon("Hang");
+    p4->parmCon("Tuyet");
     
 //use default constructor ad set names
-    p5.defaultCon();
-    p6.defaultCon();
-    p7.defaultCon();
-    p5.setName("Sue");
-    p6.setName("Victoria");
-    p7.setName("Tumbo");
+    p5->defaultCon();
+    p6->defaultCon();
+    p7->defaultCon();
+    p5->setName("Sue");
+    p6->setName("Victoria");
+    p7->setName("Tumbo");
 
-//instantiate two teams
+//create two teams
     Team basketball;
     Team soccer;
-
-//STEP 3 STARTS HERE
-//    basketball players
-    Player * ptrP1 = new Player("GEORGE");
-    Player * ptrP2 = new Player(p2);
-    Player * ptrP3 = new Player(p3);
-    Player * ptrP4 = new Player(p4);
-    Player * ptrP5 = new Player(p5);
     
+    p5->setName("Sue");
+    p6->setName("Victoria");
+    p7->setName("Tumbo");
+
+//ADD 5PLAYERS TO BASKETBALL TEAM
+    basketball.defaultTeam(p1);
+    basketball.defaultTeam(p2);
+    basketball.defaultTeam(p3);
+    basketball.defaultTeam(p4);
+    basketball.defaultTeam(p5);
+    
+//ADD ALL 7 TO THE SOCCER TEAM
+    
+    soccer.defaultTeam(p1);
+    soccer.defaultTeam(p2);
+    soccer.defaultTeam(p3);
+    soccer.defaultTeam(p4);
+    soccer.defaultTeam(p5);
+    soccer.defaultTeam(p6);
+    soccer.defaultTeam(p7);
+    
+//PRINT NAMES OF TEAM MEMBERS
+    basketball.printAllNames();
+    soccer.printAllNames();
+    
+    delete p1;
+    delete p2;
+    delete p3;
+    delete p4;
+    delete p5;
+    basketball.printAllNames();
+
+    delete p6;
+    delete p7;
+    soccer.printAllNames();
+
+    return 0;
+
 }
 
-//teach is player dept is team
+
