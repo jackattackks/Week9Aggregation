@@ -13,127 +13,156 @@ using namespace std;
 class Player{
 private:
     string name;
-
 public:
-    Player(string inName) : name(inName){}
-    
-    string getName(){
-        return name;
-    }
-    
-    void setName(string n){
-        name = n;
-    }
-    
-    void defaultCon(){
-        name = "Unknown";
-    }
-    
-    void parmCon(string list){
-        list = name;
-    }
+    void setName(string N){name = N;}
+    string getName(){return name;}
+    Player(){name = "None";}
+    Player(string N){name = N;}
 };
 
 //Team class created
 class Team{
 private:
-    Player * ptrPlayer1;
-    Player * ptrPlayer2;
-    Player * ptrPlayer3;
-    Player * ptrPlayer4;
-    Player * ptrPlayer5;
-    Player * ptrPlayer6;
-    Player * ptrPlayer7;
-    
+    int player = 7;
+    Player * ptrPlayer = new Player [player];
 public:
-    Team(Player * ptrPlayer=NULL): ptrPlayer1 (ptrPlayer){}
-    void defaultTeam(Player *Person ){
-        
-        ptrPlayer1 = Person;
-//        ptrPlayer2 = Person2;
-//        ptrPlayer3 = Person3;
-//        ptrPlayer4 = Person4;
-//        ptrPlayer5 = Person5;
-//        ptrPlayer6 = Person6;
-//        ptrPlayer7 = Person7;
-
+    Team(){
+        ptrPlayer[0].setName(" ");
+        ptrPlayer[1].setName(" ");
+        ptrPlayer[2].setName(" ");
+        ptrPlayer[3].setName(" ");
+        ptrPlayer[4].setName(" ");
+        ptrPlayer[5].setName(" ");
+        ptrPlayer[6].setName(" ");
     }
     
     void printAllNames(){
-        cout << ptrPlayer1 << endl;
-        cout << ptrPlayer2<< endl;
-        cout << ptrPlayer3<< endl;
-        cout << ptrPlayer4<< endl;
-        cout << ptrPlayer5<< endl;
-        cout << ptrPlayer6<< endl;
-        cout << ptrPlayer7<< endl;
+        for(int i=0; i <7; i++){
+            cout << ptrPlayer[i].getName() << " ";
+        }
+    }
+    
+    void basketball(Player Name1, Player Name2, Player Name3, Player Name4, Player Name5){
+        
+        ptrPlayer[0].setName(Name1.getName());
+        ptrPlayer[1].setName(Name2.getName());
+        ptrPlayer[2].setName(Name3.getName());
+        ptrPlayer[3].setName(Name4.getName());
+        ptrPlayer[4].setName(Name5.getName());
+        
+    }
+    
+    void soccer(Player Name1, Player Name2, Player Name3, Player Name4, Player Name5, Player Name6, Player Name7){
+        
+        ptrPlayer[0].setName(Name1.getName());
+        ptrPlayer[1].setName(Name2.getName());
+        ptrPlayer[2].setName(Name3.getName());
+        ptrPlayer[3].setName(Name4.getName());
+        ptrPlayer[4].setName(Name5.getName());
+        ptrPlayer[5].setName(Name6.getName());
+        ptrPlayer[6].setName(Name7.getName());
+        
     }
 };
 
 int main() {
-//instantiate 7 player
-    Player *p1 = new Player(NULL);
-    Player *p2 = new Player(NULL);
-    Player *p3 = new Player(NULL);
-    Player *p4 = new Player(NULL);
-    Player *p5 = new Player(NULL);
-    Player *p6 = new Player(NULL);
-    Player *p7 = new Player(NULL);
     
-//use parm constructor on 4 players
-    p1->parmCon("George");
-    p2->parmCon("Ivan");
-    p3->parmCon("Hang");
-    p4->parmCon("Tuyet");
+    cout << "Name: Jackie Ocaña - Program week 9 - Date: March 28" << endl;
+    cout << endl;
     
-//use default constructor ad set names
-    p5->defaultCon();
-    p6->defaultCon();
-    p7->defaultCon();
-    p5->setName("Sue");
-    p6->setName("Victoria");
-    p7->setName("Tumbo");
-
-//create two teams
-    Team basketball;
+    //instantiate 7 player
+    Player P1("George");
+    Player * ptr1;
+    ptr1 = &P1;
+    cout << "Player 1: " << ptr1->getName() << endl;
+    
+    Player P2("Ivan");
+    Player * ptr2;
+    ptr2 = &P2;
+    cout << "Player 2: " << ptr2->getName() << endl;
+    
+    Player P3("Hang");
+    Player * ptr3;
+    ptr3 = &P3;
+    cout << "Player 3: " << ptr3->getName() << endl;
+    
+    Player P4("Tuyet");
+    Player * ptr4;
+    ptr4 = &P4;
+    cout << "Player 4: " << ptr4->getName() << endl;
+    
+    Player P5;
+    Player * ptr5;
+    ptr5 = &P5;
+    ptr5->setName("Sue");
+    cout << "Player 5: " << ptr5->getName() << endl;
+    
+    Player P6;
+    Player * ptr6;
+    ptr6 = &P6;
+    ptr6->setName("Victoria");
+    cout << "Player 6: " << ptr6->getName() << endl;
+    
+    Player P7;
+    Player * ptr7;
+    ptr7 = &P7;
+    ptr7->setName("Tumbo");
+    cout << "Player 7: " << ptr7->getName() << endl;
+    
+    cout << endl;
+    
+    //PRINT NAMES OF TEAM MEMBERS, ADD ALL 7 TO THE SOCCER TEAM, ADD 5 TO BBALL
+    cout<< "Members of the soccer team: " << endl;
     Team soccer;
+    Team * ptrSoccer;
+    ptrSoccer = &soccer;
+    ptrSoccer->soccer(P1, P2, P3, P4, P5, P6, P7);
+    ptrSoccer->printAllNames();
+    cout << endl;
     
-    p5->setName("Sue");
-    p6->setName("Victoria");
-    p7->setName("Tumbo");
+    cout << endl;
+    cout<< "Members of the basketball team: " << endl;
+    Team basketball;
+    Team * ptrBasket;
+    ptrBasket = &basketball;
+    ptrBasket->basketball(P1, P2, P3, P4, P5);
+    ptrBasket->printAllNames();
+    cout << endl;
+    
+    ptrBasket = new Team;
+    delete ptrBasket;
+    
+    cout << endl;
+    cout<< "Current members of the basketball team: " << endl;
+    ptrBasket->printAllNames();
+    cout << endl;
+    
+    ptrSoccer = new Team;
+    delete ptrSoccer;
+    
+    cout << endl;
+    cout<< "Current members of the soccer team: " << endl;
+    ptrSoccer->printAllNames();
+    cout << endl;
+    
 
-//ADD 5PLAYERS TO BASKETBALL TEAM
-    basketball.defaultTeam(p1);
-    basketball.defaultTeam(p2);
-    basketball.defaultTeam(p3);
-    basketball.defaultTeam(p4);
-    basketball.defaultTeam(p5);
+    ptr1 = new Player;
+    ptr2 = new Player;
+    ptr3 = new Player;
+    ptr4 = new Player;
+    ptr5 = new Player;
+    ptr6 = new Player;
+    ptr7 = new Player;
     
-//ADD ALL 7 TO THE SOCCER TEAM
+    delete ptr1;
+    delete ptr2;
+    delete ptr3;
+    delete ptr4;
+    delete ptr5;
+    delete ptr6;
+    delete ptr7;
     
-    soccer.defaultTeam(p1);
-    soccer.defaultTeam(p2);
-    soccer.defaultTeam(p3);
-    soccer.defaultTeam(p4);
-    soccer.defaultTeam(p5);
-    soccer.defaultTeam(p6);
-    soccer.defaultTeam(p7);
-    
-//PRINT NAMES OF TEAM MEMBERS
-    basketball.printAllNames();
-    soccer.printAllNames();
-    
-    delete p1;
-    delete p2;
-    delete p3;
-    delete p4;
-    delete p5;
-    basketball.printAllNames();
-
-    delete p6;
-    delete p7;
-    soccer.printAllNames();
-
+//    cout << "End program" << endl;
     return 0;
 
 }
